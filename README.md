@@ -1,6 +1,6 @@
 # Notes App 📝
 
-A modern, simple Android application for creating and managing daily notes. This project demonstrates the integration of modern Android development practices, including Jetpack Compose for the UI, Room Database for local storage, and robust Unit Testing for database operations.
+A modern, simple Android application for creating and managing daily notes. This project demonstrates the integration of the latest Android development practices, including Jetpack Compose for the UI, Type-Safe Navigation (Navigation 3), Room Database for local storage, and robust Unit Testing for database operations.
 
 ## ✨ Features
 
@@ -8,6 +8,7 @@ A modern, simple Android application for creating and managing daily notes. This
 *   **Read & View:** Display a list of all saved notes using reactive data streams.
 *   **Update Notes:** Edit existing notes seamlessly.
 *   **Delete Notes:** Remove unwanted notes from the database.
+*   **Type-Safe Navigation:** Smooth and crash-safe transitions between screens using the latest Navigation 3 DSL and serializable keys.
 *   **Database Testing:** Includes JUnit instrumented tests to verify Room Database queries and DAO operations.
 
 ## 🛠️ Tech Stack & Architecture
@@ -16,7 +17,9 @@ This project is built using the following technologies:
 
 *   **Language:** [Kotlin](https://kotlinlang.org/)
 *   **UI Toolkit:** [Jetpack Compose](https://developer.android.com/jetpack/compose) for a declarative and modern UI.
-*   **Architecture:** MVVM (Model-View-ViewModel).
+*   **Architecture:** Single-Activity Architecture following the MVVM (Model-View-ViewModel) pattern.
+*   **Navigation:** **Jetpack Compose Navigation 3** (`androidx.navigation3`) with customized `NavDisplay` and `entryProvider`.
+*   **Serialization:** [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) for passing strongly-typed objects between screens and surviving process death.
 *   **Local Database:** [Room](https://developer.android.com/training/data-storage/room) for SQLite object mapping.
 *   **Asynchronous Programming:** [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) and [Flow](https://kotlin.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) for managing background threads and reactive data.
 *   **Testing:** [JUnit4](https://junit.org/junit4/) for local and instrumented unit testing (specifically testing the DAO).
