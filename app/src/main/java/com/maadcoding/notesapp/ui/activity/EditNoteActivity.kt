@@ -1,72 +1,33 @@
 package com.maadcoding.notesapp.ui.activity
 
-import android.os.Build
-import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.LocalActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.collection.emptyLongSet
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.input.rememberTextFieldState
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.maadcoding.notesapp.database.Note
-import com.maadcoding.notesapp.ui.theme.NotesAppTheme
 import com.maadcoding.notesapp.ui.viewmodel.NoteViewModel
-
-class EditNoteActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        val note = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            intent.getParcelableExtra("note", Note::class.java)!!
-        } else {
-            intent.getParcelableExtra("note")!!
-        }
-        setContent {
-            NotesAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    EditNoteScreen(
-                        note = note,
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
 
 @Composable
 fun EditNoteScreen(
     note: Note,
     modifier: Modifier = Modifier,
-    viewModel: NoteViewModel = viewModel()
+    viewModel: NoteViewModel = viewModel(),
+    onBack: () -> Unit
 ) {
-    val activity = LocalActivity.current
     val context = LocalContext.current
-    val noteFieldState = rememberTextFieldState()
+
+    val noteFieldState = rememberTextFieldState(initialText = note.content)
 
     Column(
         modifier = modifier
             .fillMaxSize()
             .padding(horizontal = 32.dp)
     ) {
-
-
         OutlinedTextField(
             state = noteFieldState,
             label = { Text("Note details") },
@@ -76,30 +37,28 @@ fun EditNoteScreen(
         )
 
         Row(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 32.dp)
         ) {
             OutlinedButton(
                 onClick = {
-                    val note = Note(note.id, noteFieldState.text.toString())
-                    viewModel.upsert(note)
-                    activity?.finish()
+                    val updatedNote = Note(note.id, noteFieldState.text.toString())
+                    viewModel.upsert(updatedNote)
                     Toast.makeText(context, "Updated!", Toast.LENGTH_SHORT).show()
-
+                    onBack()
                 },
-                modifier = modifier
-                    .weight(1f)
+                modifier = Modifier.weight(1f)
             ) {
                 Text(text = "Update")
             }
             OutlinedButton(
                 onClick = {
                     viewModel.delete(note)
-                    activity?.finish()
                     Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT).show()
+                    onBack()
                 },
-                modifier = modifier
+                modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp)
             ) {
@@ -107,10 +66,4 @@ fun EditNoteScreen(
             }
         }
     }
-}
-
-@Preview(showSystemUi = true, device = "spec:width=411dp,height=891dp")
-@Composable
-private fun EditNoteScreenPreview() {
-    EditNoteScreen(Note(id = 1,"") )
 }
