@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
+    alias(libs.plugins.jetbrains.kotlin.serialization)
+
 
 }
 
@@ -65,5 +67,8 @@ dependencies {
     ksp("androidx.room:room-compiler:2.8.5")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    implementation(libs.kotlinx.serialization.core)
+
+    implementation(libs.androidx.navigation3.ui)
 
 }
