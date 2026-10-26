@@ -13,7 +13,7 @@ A modern, simple Android application for creating and managing daily notes. This
 
 ## 📸 Screenshots & Demo
 
-| Notes List | Add/Edit Note |
+| Notes List | Delete/Edit Note |
 | :---: | :---: |
 | <img src="https://github.com/user-attachments/assets/5d3a7043-765d-47fa-b989-7f30558a72f8" width="250" /> | <img src="https://github.com/user-attachments/assets/7b8f30e4-c905-4b45-ac64-e2bb0fde8829" width="250" /> |
 
