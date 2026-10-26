@@ -33,3 +33,13 @@ To run the database tests:
 2. Navigate to `app/src/androidTest/java/com/maadcoding/notesapp/NoteDaoTest.kt`.
 3. Click the green **Run** arrow next to the `NoteDaoTest` class.
 4. Ensure an emulator or a physical device is connected.
+
+
+
+<img width="1080" height="2400" alt="Screenshot_20261026_045904" src="https://github.com/user-attachments/assets/7b8f30e4-c905-4b45-ac64-e2bb0fde8829" />
+<img width="1080" height="2400" alt="Screenshot_20261026_045853" src="https://github.com/user-attachments/assets/5d3a7043-765d-47fa-b989-7f30558a72f8" />
+
+
+https://github.com/user-attachments/assets/50f4e051-9942-481e-bd64-795865d6bcb9
+
+
