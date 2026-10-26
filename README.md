@@ -11,6 +11,15 @@ A modern, simple Android application for creating and managing daily notes. This
 *   **Type-Safe Navigation:** Smooth and crash-safe transitions between screens using the latest Navigation 3 DSL and serializable keys.
 *   **Database Testing:** Includes JUnit instrumented tests to verify Room Database queries and DAO operations.
 
+## 📸 Screenshots & Demo
+
+| Notes List | Add/Edit Note |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/5d3a7043-765d-47fa-b989-7f30558a72f8" width="250" /> | <img src="https://github.com/user-attachments/assets/7b8f30e4-c905-4b45-ac64-e2bb0fde8829" width="250" /> |
+
+**🎥 App Navigation & Transitions Demo:**  
+https://github.com/user-attachments/assets/50f4e051-9942-481e-bd64-795865d6bcb9
+
 ## 🛠️ Tech Stack & Architecture
 
 This project is built using the following technologies:
@@ -26,20 +35,10 @@ This project is built using the following technologies:
 
 ## 🧪 Testing
 
-The application includes Instrumented Unit Tests to ensure the database operations work flawlessly. The tests run on an Android device or emulator to create an in-memory database and verify the `Insert`, `Update`, `Delete`, and `Select` queries.
+The application includes Instrumented Unit Tests to ensure the database operations work flawlessly. The tests run on an Android device or emulator to create an in-memory database and verify the `Insert` and `Select` queries.
 
 To run the database tests:
 1. Open the project in Android Studio.
 2. Navigate to `app/src/androidTest/java/com/maadcoding/notesapp/NoteDaoTest.kt`.
 3. Click the green **Run** arrow next to the `NoteDaoTest` class.
 4. Ensure an emulator or a physical device is connected.
-
-
-
-<img width="1080" height="2400" alt="Screenshot_20261026_045904" src="https://github.com/user-attachments/assets/7b8f30e4-c905-4b45-ac64-e2bb0fde8829" />
-<img width="1080" height="2400" alt="Screenshot_20261026_045853" src="https://github.com/user-attachments/assets/5d3a7043-765d-47fa-b989-7f30558a72f8" />
-
-
-https://github.com/user-attachments/assets/50f4e051-9942-481e-bd64-795865d6bcb9
-
-
